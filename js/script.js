@@ -31,11 +31,14 @@ let discount = 0;
 let priceTicket = 0;
 let numberTrain = 0;
 let barcodeNumber = 0;
+let countTicker = 0;
 
 // Quando l'utente vuole generare il biglietto
 btnGenerate.addEventListener("click", function(){
     // Controlliamo se l'utente ha inserito i valori
-    if((userName.value !== "" && isNaN(userName.value) === true) && (userDistance.value !== "" && isNaN(userDistance.value) === false)){
+    if((userName.value !== "" && isNaN(userName.value) === true) && (userDistance.value !== "" && isNaN(userDistance.value) === false) && countTicker < 1){
+       
+        countTicker++;
 
         // Calcoliamo il prezzo base
         priceTicket = parseFloat(userDistance.value) * priceForKm;
@@ -75,10 +78,13 @@ btnGenerate.addEventListener("click", function(){
         } else{
             discountTypeTicket.innerHTML = "Biglietto standard";
         }
-    } else{
-        alert("Attenzione!!! Inserire Nome e Cognome e i Km da Percorrere");
+    } else if (!(userName.value !== "" && isNaN(userName.value) === true)){
+        alert("Inserisci bene il Nome e Cognome");
+    } else if(!(userDistance.value !== "" && isNaN(userDistance.value) === false)){
+        alert("Inserisci bene la Distanza da percorrere");
+    } else if(countTicker >= 1){
+        alert("Hai già creato il biglietto! Clicca annulla oppure Ricarica la pagina")
     }
-
 });
 
 // Quando l'utente vuole annullare
@@ -90,6 +96,7 @@ btnCancel.addEventListener("click", function(){
     priceTicket = "";
     numberTrain = "";
     barcodeNumber = "";
+    countTicker = 0;
 
     // Svuoto l'output
     userNameTicket.innerHTML = "";
