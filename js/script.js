@@ -13,6 +13,13 @@ const userName = document.getElementById("user-name");
 const userDistance = document.getElementById("user-distance");
 const userAge = document.getElementById("user-age");
 
+// Output Utente
+const userNameTicket = document.getElementById("info-name-ticket");
+const discountTypeTicket = document.getElementById("info-discount-type");
+const numberTrainTicket = document.getElementById("info-number-train");
+const infoPriceTicket = document.getElementById("info-price-ticket");
+const infoBarcodeTicket = document.getElementById("bar-code-ticket");
+
 // Button
 const btnGenerate = document.getElementById("btn-generate");
 const btnCancel = document.getElementById("btn-cancel");
@@ -22,7 +29,8 @@ const btnCancel = document.getElementById("btn-cancel");
 const priceForKm = 0.21;
 let discount = 0;
 let priceTicket = 0;
-
+let numberTrain = 0;
+let barcodeNumber = 0;
 
 // Quando l'utente vuole generare il biglietto
 btnGenerate.addEventListener("click", function(){
@@ -40,6 +48,31 @@ btnGenerate.addEventListener("click", function(){
     // Calcoliamo il prezzo finale 
     priceTicket -= priceTicket * discount;
     console.log(priceTicket);
+
+    // Generiamo il numero di carrozza
+    numberTrain = Math.floor(Math.random() * (7 - 1 + 1) ) + 1;
+    console.log(numberTrain);
+
+    // Genero il numero del barcode
+    for(let i = 0; i < 5; i++){
+        let randomNumber = Math.floor(Math.random() * (10 - 1) ) + 1;
+        barcodeNumber = `${barcodeNumber}${randomNumber}`;
+    }
+    console.log(barcodeNumber);
+
+    // OUTPUT
+    userNameTicket.innerHTML = userName.value;
+    numberTrainTicket.innerHTML = numberTrain;
+    infoPriceTicket.innerHTML = priceTicket.toFixed(2);
+    infoBarcodeTicket.innerHTML = barcodeNumber;
+    
+    // Controllo che tipo di biglietto è
+    if(discount === 0.2 || discount === 0.4){
+        discountTypeTicket.innerHTML = "Biglietto scontato";
+    } else{
+        discountTypeTicket.innerHTML = "Biglietto standard";
+    }
+
 });
 
 // Quando l'utente vuole annullare
@@ -47,6 +80,17 @@ btnCancel.addEventListener("click", function(){
     userName.value = "";
     userDistance.value = "";
     userAge.value = "";
-    discount = 0;
-    priceTicket = 0;
+    discount = "";
+    priceTicket = "";
+    numberTrain = "";
+    barcodeNumber = "";
+
+    // Svuoto l'output
+    userNameTicket.innerHTML = "";
+    numberTrainTicket.innerHTML = "";
+    infoPriceTicket.innerHTML = "";
+    infoBarcodeTicket.innerHTML = "";
+    discountTypeTicket.innerHTML = "";
 });
+
+

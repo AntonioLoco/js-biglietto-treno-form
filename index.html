@@ -20,7 +20,9 @@
     <main>
         <div class="container py-5">
             <h1 class="fs-1 text-center text-uppercase">Calcola il prezzo del tuo biglietto</h1>
-            <div class="row">
+
+            <!-- Form Ticket -->
+            <div class="row mb-5">
                 <div class="header-box col-12">
                     <i class="fa-solid fa-train"></i>
                     <span>Inserisci i tuoi dati</span>
@@ -50,6 +52,48 @@
                     </div>
                 </div>
             </div>
+            <!-- /Form Ticket -->
+
+
+            <h1 class="fs-1 text-center text-uppercase">Il tuo biglietto</h1>
+
+            <!-- Train Ticket  -->
+            <div class="row">
+                <div class="header-box col-12">
+                    <i class="fa-solid fa-train"></i>
+                    <span>Train Ticket</span>
+                </div>
+                <div class="main-box col-12">
+                    <div class="row text-center">
+                        <div class="col-10">
+                            <div class="row">
+                                <div class="col-4">
+                                    <span class="d-block">Nome Passeggero</span>
+                                    <span id="info-name-ticket"></span>
+                                </div>
+                                <div class="col-2">
+                                    <span class="d-block">Offerta</span>
+                                    <span id="info-discount-type"></span>
+                                </div>
+                                <div class="col-2">
+                                    <span class="d-block">Carrozza</span>
+                                    <span id="info-number-train"></span>
+                                </div>
+                                <div class="col-4">
+                                    <span class="d-block">Prezzo</span>
+                                    <span id="info-price-ticket"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <i class="fa-solid fa-barcode d-block"></i>
+                            <span id="bar-code-ticket"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Train Ticket  -->
+
         </div>
         <!-- Container -->
     </main>
