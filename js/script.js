@@ -34,43 +34,49 @@ let barcodeNumber = 0;
 
 // Quando l'utente vuole generare il biglietto
 btnGenerate.addEventListener("click", function(){
-    // Calcoliamo il prezzo base
-    priceTicket = parseFloat(userDistance.value) * priceForKm;
-    console.log(priceTicket);
+    // Controlliamo se l'utente ha inserito i valori
+    if(userName.value !== "" && userDistance.value !== ""){
 
-    // Verifichiamo se l'utente ha diritto allo sconto
-    if(userAge.value === "under-age"){
-        discount = 0.2;
-    } else if(userAge.value === "old-age"){
-        discount = 0.4;
-    }
+        // Calcoliamo il prezzo base
+        priceTicket = parseFloat(userDistance.value) * priceForKm;
+        console.log(priceTicket);
 
-    // Calcoliamo il prezzo finale 
-    priceTicket -= priceTicket * discount;
-    console.log(priceTicket);
+        // Verifichiamo se l'utente ha diritto allo sconto
+        if(userAge.value === "under-age"){
+            discount = 0.2;
+        } else if(userAge.value === "old-age"){
+            discount = 0.4;
+        }
 
-    // Generiamo il numero di carrozza
-    numberTrain = Math.floor(Math.random() * (7 - 1 + 1) ) + 1;
-    console.log(numberTrain);
+        // Calcoliamo il prezzo finale 
+        priceTicket -= priceTicket * discount;
+        console.log(priceTicket);
 
-    // Genero il numero del barcode
-    for(let i = 0; i < 5; i++){
-        let randomNumber = Math.floor(Math.random() * (10 - 1) ) + 1;
-        barcodeNumber = `${barcodeNumber}${randomNumber}`;
-    }
-    console.log(barcodeNumber);
+        // Generiamo il numero di carrozza
+        numberTrain = Math.floor(Math.random() * (7 - 1 + 1) ) + 1;
+        console.log(numberTrain);
 
-    // OUTPUT
-    userNameTicket.innerHTML = userName.value;
-    numberTrainTicket.innerHTML = numberTrain;
-    infoPriceTicket.innerHTML = priceTicket.toFixed(2) + "€";
-    infoBarcodeTicket.innerHTML = barcodeNumber;
-    
-    // Controllo che tipo di biglietto è
-    if(discount === 0.2 || discount === 0.4){
-        discountTypeTicket.innerHTML = "Biglietto scontato";
+        // Genero il numero del barcode
+        for(let i = 0; i < 5; i++){
+            let randomNumber = Math.floor(Math.random() * (10 - 1) ) + 1;
+            barcodeNumber = `${barcodeNumber}${randomNumber}`;
+        }
+        console.log(barcodeNumber);
+
+        // OUTPUT
+        userNameTicket.innerHTML = userName.value;
+        numberTrainTicket.innerHTML = numberTrain;
+        infoPriceTicket.innerHTML = priceTicket.toFixed(2) + "€";
+        infoBarcodeTicket.innerHTML = barcodeNumber;
+        
+        // Controllo che tipo di biglietto è
+        if(discount === 0.2 || discount === 0.4){
+            discountTypeTicket.innerHTML = "Biglietto scontato";
+        } else{
+            discountTypeTicket.innerHTML = "Biglietto standard";
+        }
     } else{
-        discountTypeTicket.innerHTML = "Biglietto standard";
+        alert("Attenzione!!! Inserire Nome e Cognome e i Km da Percorrere");
     }
 
 });
