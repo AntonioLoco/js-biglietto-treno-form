@@ -35,7 +35,7 @@ let barcodeNumber = 0;
 // Quando l'utente vuole generare il biglietto
 btnGenerate.addEventListener("click", function(){
     // Controlliamo se l'utente ha inserito i valori
-    if(userName.value !== "" && userDistance.value !== ""){
+    if((userName.value !== "" && isNaN(userName.value) === true) && (userDistance.value !== "" && isNaN(userDistance.value) === false)){
 
         // Calcoliamo il prezzo base
         priceTicket = parseFloat(userDistance.value) * priceForKm;
