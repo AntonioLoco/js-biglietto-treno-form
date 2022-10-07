@@ -16,7 +16,43 @@
     <title>Calcola il prezzo del tuo Biglietto</title>
 </head>
 <body>
-    
+    <!-- Container -->
+    <main>
+        <div class="container py-5">
+            <h1 class="fs-1 text-center text-uppercase">Calcola il prezzo del tuo biglietto</h1>
+            <div class="row">
+                <div class="header-box col-12">
+                    <i class="fa-solid fa-train"></i>
+                    <span>Inserisci i tuoi dati</span>
+                </div>
+                <div class="main-box col-12">
+                    <div class="row text-center">
+                        <div class="col-4">
+                            <label for="user-name">Nome e Cognome</label>
+                            <input type="text" name="" id="user-name">
+                        </div>
+                        <div class="col-4">
+                            <label for="user-distance">Km da percorrere</label>
+                            <input type="text" name="" id="user-distance">
+                        </div>
+                        <div class="col-4">
+                            <label for="user-age">Fascia d'età</label>
+                            <select name="" id="user-age">
+                                <option value=""></option>
+                                <option value="under-age">Minorenne</option>
+                                <option value="old-age">Over 65</option>
+                            </select>
+                        </div>
+                        <div class="col-6 offset-3">
+                            <button class="ms_btn" id="btn-generate">Genera</button>
+                            <button class="ms_btn" id="btn-cancel">Annulla</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Container -->
+    </main>
 
     <!-- Script -->
     <script src="js/script.js"></script>

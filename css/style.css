@@ -1,0 +1,52 @@
+/* COMMON */
+html{
+    font-size: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Variables */
+:root{
+    /* Palette */
+    --ms_blue: #0B4076;
+    --ms_orange: #D6402B;
+    --ms_white-cream: #EAEAEA;
+}
+
+/* MAIN */
+/* Header box*/
+.header-box{
+    padding: .5em 1em;
+    margin-top: 1em;
+    color: #ffff;
+    background-color: var(--ms_blue);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.header-box i{
+    font-size: 2rem;
+}
+
+.header-box span{
+    font-size: 1.8rem;
+    margin-left: .5em;
+}
+
+/* Main box */
+.main-box{
+    background-color: var(--ms_white-cream);
+    border-bottom: 25px solid var(--ms_orange);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.main-box .row div[class^="col-"]{
+    margin-bottom: 2em;
+}
+
+.main-box .row label{
+    display: block;
+    margin-top: 1.5em;
+    margin-bottom: .5em;
+}
+
