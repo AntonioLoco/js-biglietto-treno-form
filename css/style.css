@@ -12,7 +12,20 @@ html{
     --ms_white-cream: #EAEAEA;
 }
 
+/* Buttons */
+.ms_btn{
+    background-color: #fff;
+    color: var(--ms_blue);
+    border: 1px solid var(--ms_blue);
+    padding: .5em;
+    margin: 0 1em;
+    border-radius: 10px;
+    font-weight: bold;
+
+}
+
 /* MAIN */
+/* Form Ticket */
 /* Header box*/
 .header-box{
     padding: .5em 1em;
@@ -46,7 +59,49 @@ html{
 
 .main-box .row label{
     display: block;
+    color: var(--ms_blue);
+    font-weight: 600;
     margin-top: 1.5em;
     margin-bottom: .5em;
 }
 
+.main-box .row input,
+.main-box .row select{
+    padding: 3px 10px;
+    border: 1px solid var(--ms_blue);
+    border-radius: 10px;
+}
+
+.main-box .row input:focus-visible,
+.main-box .row select:focus-visible{
+    outline: none;
+}
+
+/* Train Ticket */
+.train-ticket span[class^="d-block"]{
+    margin-top: 2em;
+    margin-bottom: 1em;
+    font-weight: bold;
+}
+
+.train-ticket span[id^="info-"]{
+    display: inline-block;
+    padding: .5em 1em;
+}
+
+.train-ticket .ms_bar-code{
+    font-size: 2rem;
+    transform: rotate(270deg);
+}
+
+.train-ticket .ms_bar-code .bar-code-icon {
+    display: block;
+    font-size: 4rem;
+    border-top: 1px dashed rgb(177, 176, 176);
+}
+
+.train-ticket #info-price-ticket{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--ms_blue);
+}

@@ -63,7 +63,7 @@ btnGenerate.addEventListener("click", function(){
     // OUTPUT
     userNameTicket.innerHTML = userName.value;
     numberTrainTicket.innerHTML = numberTrain;
-    infoPriceTicket.innerHTML = priceTicket.toFixed(2);
+    infoPriceTicket.innerHTML = priceTicket.toFixed(2) + "€";
     infoBarcodeTicket.innerHTML = barcodeNumber;
     
     // Controllo che tipo di biglietto è
