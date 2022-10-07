@@ -10,15 +10,43 @@ Sulla base di queste informazioni dovrà calcolare il prezzo totale del bigliett
 
 // Input Utente
 const userName = document.getElementById("user-name");
-console.log(userName);
 const userDistance = document.getElementById("user-distance");
-console.log(userDistance);
 const userAge = document.getElementById("user-age");
-console.log(userAge);
 
 // Button
 const btnGenerate = document.getElementById("btn-generate");
-console.log(btnGenerate);
 const btnCancel = document.getElementById("btn-cancel");
-console.log(btnCancel);
 
+
+// ELABORAZIONE
+const priceForKm = 0.21;
+let discount = 0;
+let priceTicket = 0;
+
+
+// Quando l'utente vuole generare il biglietto
+btnGenerate.addEventListener("click", function(){
+    // Calcoliamo il prezzo base
+    priceTicket = parseFloat(userDistance.value) * priceForKm;
+    console.log(priceTicket);
+
+    // Verifichiamo se l'utente ha diritto allo sconto
+    if(userAge.value === "under-age"){
+        discount = 0.2;
+    } else if(userAge.value === "old-age"){
+        discount = 0.4;
+    }
+
+    // Calcoliamo il prezzo finale 
+    priceTicket -= priceTicket * discount;
+    console.log(priceTicket);
+});
+
+// Quando l'utente vuole annullare
+btnCancel.addEventListener("click", function(){
+    userName.value = "";
+    userDistance.value = "";
+    userAge.value = "";
+    discount = 0;
+    priceTicket = 0;
+});
