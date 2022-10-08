@@ -36,7 +36,7 @@ let countTicker = 0;
 // Quando l'utente vuole generare il biglietto
 btnGenerate.addEventListener("click", function(){
     // Controlliamo se l'utente ha inserito i valori
-    if((userName.value !== "" && isNaN(userName.value) === true) && (userDistance.value !== "" && isNaN(userDistance.value) === false) && countTicker < 1){
+    if((userName.value !== "" && isNaN(userName.value) === true) && (userDistance.value !== "" && isNaN(userDistance.value) === false) && userAge.value !== "" && countTicker < 1){
        
         countTicker++;
 
@@ -49,6 +49,8 @@ btnGenerate.addEventListener("click", function(){
             discount = 0.2;
         } else if(userAge.value === "old-age"){
             discount = 0.4;
+        } else if (userAge.value === "over-age"){
+            discount = 0;
         }
 
         // Calcoliamo il prezzo finale 
@@ -84,6 +86,8 @@ btnGenerate.addEventListener("click", function(){
         alert("Inserisci bene la Distanza da percorrere");
     } else if(countTicker >= 1){
         alert("Hai già creato il biglietto! Clicca annulla oppure Ricarica la pagina")
+    } else if(userAge.value === ""){
+        alert("Perfavore inserire la fascia d'età");
     }
 });
 
