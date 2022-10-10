@@ -19,6 +19,7 @@ const discountTypeTicket = document.getElementById("info-discount-type");
 const numberTrainTicket = document.getElementById("info-number-train");
 const infoPriceTicket = document.getElementById("info-price-ticket");
 const infoBarcodeTicket = document.getElementById("bar-code-ticket");
+const ticketTrain = document.getElementById("train-ticket");
 
 // Button
 const btnGenerate = document.getElementById("btn-generate");
@@ -80,6 +81,8 @@ btnGenerate.addEventListener("click", function(){
         } else{
             discountTypeTicket.innerHTML = "Biglietto standard";
         }
+
+        ticketTrain.classList.remove("d-none");
     } else if (!(userName.value !== "" && isNaN(userName.value) === true)){
         alert("Inserisci bene il Nome e Cognome");
     } else if(!(userDistance.value !== "" && isNaN(userDistance.value) === false)){
@@ -108,6 +111,7 @@ btnCancel.addEventListener("click", function(){
     infoPriceTicket.innerHTML = "";
     infoBarcodeTicket.innerHTML = "";
     discountTypeTicket.innerHTML = "";
+    ticketTrain.classList.add("d-none");
 });
 
 
